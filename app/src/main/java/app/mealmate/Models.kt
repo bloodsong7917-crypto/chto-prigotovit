@@ -15,6 +15,7 @@ data class Recipe(
     val mealType: String = "",
     val name: String = "",
     val description: String = "",
+    val photoQuery: String = "",
     val timeMinutes: Int = 0,
     val servings: Int = 1,
     val kcal: Double = 0.0,

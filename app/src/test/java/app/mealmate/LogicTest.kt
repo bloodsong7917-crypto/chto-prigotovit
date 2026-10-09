@@ -41,6 +41,15 @@ class LogicTest {
     }
 
     @Test
+    fun parsesWikimediaSearch() {
+        val body = """{"query":{"pages":{"7":{"index":2,"imageinfo":[{"thumburl":"https://x/second.jpg"}]},"5":{"index":1,"imageinfo":[{"thumburl":"https://x/first.jpg","extmetadata":{"Artist":{"value":"<a href=\"u\">Juerg  Vollmer</a> from Zürich"},"LicenseShortName":{"value":"CC BY-SA 2.0"}}}]}}}}"""
+        val photo = Photos.parseSearch(body)
+        assertEquals("https://x/first.jpg", photo.url)
+        assertEquals("Juerg Vollmer from Zürich, CC BY-SA 2.0, Wikimedia Commons", photo.credit)
+        assertEquals("", Photos.parseSearch("""{"batchcomplete":""}""").url)
+    }
+
+    @Test
     fun requestCarriesImageAndPrompt() {
         val body = Gemini.requestBody("привет", byteArrayOf(1, 2, 3))
         assertTrue("\"inline_data\"" in body)

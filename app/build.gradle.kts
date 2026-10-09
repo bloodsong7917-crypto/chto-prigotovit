@@ -13,8 +13,8 @@ android {
         applicationId = "app.mealmate"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.2"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -25,6 +25,12 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            all { it.systemProperty("roborazzi.test.record", "true") }
+        }
     }
 }
 
@@ -40,4 +46,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.13")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.26.0")
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("androidx.test:core:1.6.1")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

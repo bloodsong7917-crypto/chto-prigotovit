@@ -139,13 +139,16 @@ object Gemini {
 
 object Prompts {
     private const val RECIPE_FIELDS =
-        "\"name\":\"название\",\"description\":\"одно предложение\",\"timeMinutes\":30,\"servings\":2," +
+        "\"name\":\"название\",\"description\":\"одно предложение\",\"photoQuery\":\"borscht\"," +
+            "\"timeMinutes\":30,\"servings\":2," +
             "\"kcal\":450,\"protein\":25,\"fat\":15,\"carbs\":50," +
             "\"ingredients\":[{\"name\":\"продукт\",\"amount\":\"200 г\",\"have\":true}],\"steps\":[\"шаг\"]"
 
     private const val RECIPE_RULES =
         "kcal, protein, fat, carbs — числа (ккал и граммы) на ОДНУ порцию, посчитай их реалистично по составу. " +
-            "amount — количество продукта сразу на все порции. Весь текст на русском языке. " +
+            "amount — количество продукта сразу на все порции. " +
+            "photoQuery — общепринятое название блюда на английском, 1–3 слова, для поиска его фотографии. " +
+            "Весь остальной текст — на русском языке. " +
             "Ответь только JSON без пояснений."
 
     private const val BASICS = "Соль, перец, сахар, растительное масло, вода и базовые специи считаются доступными всегда."
