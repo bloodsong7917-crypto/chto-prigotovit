@@ -9,17 +9,4 @@
 
 Распознавание фото и подбор блюд работают через Google Gemini API. Ключ (бесплатно на <https://aistudio.google.com/apikey>) вводится в настройках приложения и хранится только на телефоне.
 
-```bash
-./gradlew testDebugUnitTest assembleDebug
-```
-
-APK появится в `app/build/outputs/apk/debug/app-debug.apk`. Минимальная версия Android — 8.0.
-
-## Устройство проекта
-
-Kotlin и Jetpack Compose, один модуль `app`:
-
-- `Gemini.kt` — запросы к Gemini и тексты промптов;
-- `AppViewModel.kt` — состояние приложения и его сохранение;
-- `Nutrition.kt` — расчёт нормы калорий и БЖУ;
-- `ui/` — экраны.
+ Минимальная версия Android — 8.0.
