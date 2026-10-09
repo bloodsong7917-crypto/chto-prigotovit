@@ -9,10 +9,6 @@
 
 Распознавание фото и подбор блюд работают через Google Gemini API. Ключ (бесплатно на <https://aistudio.google.com/apikey>) вводится в настройках приложения и хранится только на телефоне.
 
-## Сборка
-
-Нужны JDK 17 и Android SDK (platform 35). Путь к SDK укажите в `local.properties` (`sdk.dir=...`) или в переменной `ANDROID_HOME`.
-
 ```bash
 ./gradlew testDebugUnitTest assembleDebug
 ```
